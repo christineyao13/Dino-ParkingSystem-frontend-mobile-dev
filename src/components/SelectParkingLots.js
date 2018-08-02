@@ -4,10 +4,14 @@ const Item = List.Item;
 export default class SelectParkingLots extends React.Component{
     constructor() {
         super();
-      }
-    
+    }
+
+    componentDidMount() {
+        this.props.getParkingLotsHandler();
+    }
       
   render(){
+      console.log(this.props.lotsList) 
       // const parkingBoyId = localStorage.getItem("id");
       const parkingBoyId = 2;
       const parkingLotId = 1;

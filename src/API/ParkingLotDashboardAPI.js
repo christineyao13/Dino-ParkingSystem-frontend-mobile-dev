@@ -5,23 +5,24 @@ const ParkingLotBashBoardAPI = {
   // initServerData(dispatch, action) {
   //   this.getServerData(dispatch, action);
   // },
-  // getServerData(successCallBack) {
-  //   let getDataUrl = `https://dino-parking-system-backend.herokuapp.com/parkingBoys/${id}/parkingLots`;
-  //   axios
-  //     .get(getDataUrl)
-  //     .then((response) => {
-  //       const data = response
-  //         .data
-  //         .map(serverData => {
-  //           const {parkingLotName, size, carNum, parkingBoyName} = serverData;
-  //           return {parkingLotName, size, carNum, parkingBoyName};
-  //         });
-  //         successCallBack(data)
-  //     })
-  //     .catch(function (error) {
-  //     })
-  //     .then(function () {});
-  // },
+  getServerData(successCallBack) {
+    const parkingBoyid = 2;
+    let getDataUrl = `https://dino-parking-system-backend.herokuapp.com/parkingBoys/${parkingBoyid}/parkingLots`;
+    axios
+      .get(getDataUrl)
+      .then((response) => {
+        // const data = response
+        //   .data
+        //   .map(serverData => {
+        //     const {parkingLotName, size, carNum, parkingBoyName} = serverData;
+        //     return {parkingLotName, size, carNum, parkingBoyName};
+        //   });
+          successCallBack(response.data)
+      })
+      .catch(function (error) {
+      })
+      .then(function () {});
+  },
 
   putServerData(parkingBoyId,parkingLotId) {
     let self = this;
