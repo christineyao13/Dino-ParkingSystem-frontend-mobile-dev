@@ -8,7 +8,7 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'blueTab',
+      selectedTab: 'redTab',
       hidden: false,
       fullScreen: true,
     };
@@ -25,6 +25,14 @@ export default class Home extends React.Component {
   }
 
   renderContent2(pageText) {
+    return (
+      <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
+       <ParkingWorkList/>
+      </div>
+    );
+  }
+
+  renderContent3(pageText) {
     return (
       <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
        <ParkingWorkList/>
