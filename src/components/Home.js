@@ -2,12 +2,13 @@ import React from 'react';
 import { TabBar } from 'antd-mobile';
 import '../index.css'
 import RobOrder from '../containers/RobOrderContainer'
+import ParkingWorkList from '../components/ParkingWorkList'
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'redTab',
+      selectedTab: 'blueTab',
       hidden: false,
       fullScreen: true,
     };
@@ -20,12 +21,13 @@ export default class Home extends React.Component {
        <RobOrder />
       </div>
     );
+  
   }
 
   renderContent2(pageText) {
     return (
       <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
-       11
+       <ParkingWorkList/>
       </div>
     );
   }
