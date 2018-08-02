@@ -1,12 +1,12 @@
 import {connect} from 'react-redux';
-import Order from "../components/Order";
-import RobOrderAPI from '../api/RobOrderAPI'
+import RobOrder from "../components/RobOrder";
+import RobOrderAPI from '../API/RobOrderAPI'
 
 const mapStateToProps = (state, ownProps) => {
-  let lotsList = [];
-  if (state !== null) {
-    lotsList = [...state.dashboard];
-  }
+  let lotsList = [1,2];
+//   if (state !== null) {
+//     lotsList = [...state.dashboard];
+//   }
 
   return {lotsList}
 }
@@ -14,9 +14,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     load: () => {
-      ParkingLotDashboardAPI.initServerData(dispatch, showParkingLotsList);
+      
     }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Order);
+export default connect(mapStateToProps, mapDispatchToProps)(RobOrder);

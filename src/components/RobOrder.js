@@ -21,7 +21,7 @@ function genData(pIndex = 0) {
   return dataBlob;
 }
 
-export default class Order extends React.Component {
+export default class RobOrder extends React.Component {
   constructor(props) {
     super(props);
     const dataSource = new ListView.DataSource({

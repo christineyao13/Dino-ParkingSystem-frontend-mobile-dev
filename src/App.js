@@ -10,6 +10,7 @@ class App extends Component {
     return (
       <div className={styles.App}>
         <Home />
+        1111
         {/* <LoginForm /> */}
       </div>
     );

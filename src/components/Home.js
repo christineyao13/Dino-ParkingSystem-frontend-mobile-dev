@@ -1,7 +1,7 @@
 import React from 'react';
 import { TabBar } from 'antd-mobile';
 import '../index.css'
-import Order from './Order'
+import RobOrder from '../containers/RobOrderContainer'
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ export default class Home extends React.Component {
 
     return (
       <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
-       <Order />
+       <RobOrder />
       </div>
     );
   }
