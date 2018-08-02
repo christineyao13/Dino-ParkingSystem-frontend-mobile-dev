@@ -1,41 +1,31 @@
+import React from 'react';
 import { TabBar } from 'antd-mobile';
 import '../index.css'
-import React from 'react';
+import Order from './Order'
 
-export default class LoginForm extends React.Component {
+export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedTab: 'redTab',
       hidden: false,
-      fullScreen: false,
+      fullScreen: true,
     };
   }
 
-  renderContent(pageText) {
+  renderContent1(pageText) {
+
     return (
       <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
-        <div style={{ paddingTop: 60 }}>Clicked “{pageText}” tab， show “{pageText}” information</div>
-        <a style={{ display: 'block', marginTop: 40, marginBottom: 20, color: '#108ee9' }}
-          onClick={(e) => {
-            e.preventDefault();
-            this.setState({
-              hidden: !this.state.hidden,
-            });
-          }}
-        >
-          Click to show/hide tab-bar
-        </a>
-        <a style={{ display: 'block', marginBottom: 600, color: '#108ee9' }}
-          onClick={(e) => {
-            e.preventDefault();
-            this.setState({
-              fullScreen: !this.state.fullScreen,
-            });
-          }}
-        >
-          Click to switch fullscreen
-        </a>
+       <Order />
+      </div>
+    );
+  }
+
+  renderContent2(pageText) {
+    return (
+      <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
+       11
       </div>
     );
   }
@@ -73,7 +63,7 @@ export default class LoginForm extends React.Component {
             }}
             data-seed="logId"
           >
-            {this.renderContent('Life')}
+            {this.renderContent1('Life')}
           </TabBar.Item>
           <TabBar.Item
             icon={
@@ -101,7 +91,7 @@ export default class LoginForm extends React.Component {
             }}
             data-seed="logId1"
           >
-            {this.renderContent('Koubei')}
+            {this.renderContent2('Koubei')}
           </TabBar.Item>
           <TabBar.Item
             icon={
@@ -128,7 +118,7 @@ export default class LoginForm extends React.Component {
               });
             }}
           >
-            {this.renderContent('Friend')}
+            {this.renderContent1('Friend')}
           </TabBar.Item>
           <TabBar.Item
             icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
@@ -142,7 +132,7 @@ export default class LoginForm extends React.Component {
               });
             }}
           >
-            {this.renderContent('My')}
+            {this.renderContent1('My')}
           </TabBar.Item>
         </TabBar>
       </div>
