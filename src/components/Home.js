@@ -51,22 +51,22 @@ export default class Home extends React.Component {
           hidden={this.state.hidden}
         >
           <TabBar.Item
-            title="Life"
+            title="抢单"
             key="Life"
             icon={<div style={{
               width: '22px',
               height: '22px',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat' }}
+              background: 'url(http://www.iconpng.com/png/etao-ux-fonts/font-508.png) center center /  21px 21px no-repeat' }}
             />
             }
             selectedIcon={<div style={{
               width: '22px',
               height: '22px',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat' }}
+              background: 'url(http://www.iconpng.com/png/etao-ux-fonts/font-508.png) center center /  21px 21px no-repeat' }}
             />
             }
             selected={this.state.selectedTab === 'blueTab'}
-            badge={1}
+            // badge={1}
             onPress={() => {
               this.setState({
                 selectedTab: 'blueTab',
@@ -81,19 +81,20 @@ export default class Home extends React.Component {
               <div style={{
                 width: '22px',
                 height: '22px',
-                background: 'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center /  21px 21px no-repeat' }}
+                background: 'url(http://www.iconpng.com/png/delivering-icons/car171.png) center center /  21px 21px no-repeat' }}
               />
             }
             selectedIcon={
               <div style={{
                 width: '22px',
                 height: '22px',
-                background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat' }}
+                background: 'url(http://www.iconpng.com/png/delivering-icons/car171.png) center center /  21px 21px no-repeat' }
+              }
               />
             }
-            title="Koubei"
+            title="停取"
             key="Koubei"
-            badge={'new'}
+            // badge={'new'}
             selected={this.state.selectedTab === 'redTab'}
             onPress={() => {
               this.setState({
@@ -109,19 +110,19 @@ export default class Home extends React.Component {
               <div style={{
                 width: '22px',
                 height: '22px',
-                background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat' }}
+                background: 'url(http://www.iconpng.com/png/iphone_web_black/backup.png) center center /  21px 21px no-repeat' }}
               />
             }
             selectedIcon={
               <div style={{
                 width: '22px',
                 height: '22px',
-                background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat' }}
+                background: 'url(http://www.iconpng.com/png/iphone_web_black/backup.png) center center /  21px 21px no-repeat' }}
               />
             }
-            title="Friend"
+            title="历史记录"
             key="Friend"
-            dot
+            // dot
             selected={this.state.selectedTab === 'greenTab'}
             onPress={() => {
               this.setState({
