@@ -12,7 +12,7 @@ const RobOrderAPI = {
         des: '车牌号'
       }
     ];
-    successCallBack(testData)}
+    successCallBack(testData)},
   //   let getDataUrl = 'https://dino-parking-system-backend.herokuapp.com/parkingLots/dashboard';
   //   axios
   //     .get(getDataUrl)
@@ -29,6 +29,27 @@ const RobOrderAPI = {
   //     })
   //     .then(function () {});
   // }
+  sendServerData(successCallBack) {
+    alert("rob order successfully!")
+    // let testData = [
+    //   {
+    //     img: 'http://www.iconpng.com/png/delivering-icons/car171.png',
+    //     // title: '车牌号：粤C888888',
+    //     des: '车牌号'
+    //   }
+    // ];
+    // successCallBack(testData)}
+
+    // axios.
+    // post(`${this.apiUrl}/users`, employee)
+    // .then(function (response) {
+    //     successCallBack(response.status);
+    // }) 
+    // .catch(function (error) {
+    //     console.log(error);
+    // })
+  }
+
 }
 
 export default RobOrderAPI;

@@ -140,7 +140,7 @@ export default class RobOrder extends React.Component {
             </div>
            
           </div>
-          <Button >抢单</Button>
+          <Button onClick={this.props.robOrderHandle}>抢单</Button>
         </div>
       );
     };
