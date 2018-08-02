@@ -5,14 +5,6 @@ const RobOrderAPI = {
     this.getServerData(dispatch, action);
   },
   getServerData(successCallBack) {
-    // let testData = [
-    //   {
-    //     img: 'http://www.iconpng.com/png/delivering-icons/car171.png',
-    //     // title: '车牌号：粤C888888',
-    //     des: '车牌号'
-    //   }
-    // ];
-    // successCallBack(testData)},
     let getDataUrl = 'https://dino-parking-system-backend.herokuapp.com/orders/nohandle';
     axios
       .get(getDataUrl)
@@ -21,9 +13,9 @@ const RobOrderAPI = {
           .data
           .map(serverData => {
             const img = 'http://www.iconpng.com/png/delivering-icons/car171.png';
-            const {plateNumber} = serverData;
+            const {plateNumber,id} = serverData;
             
-            return {plateNumber,img};
+            return {plateNumber,img,id};
           })
           ;
         successCallBack([...data])
@@ -32,26 +24,20 @@ const RobOrderAPI = {
       })
       .then(function () {});
   },
-  sendServerData(successCallBack) {
-    alert("rob order successfully!");
-    this.getServerData(successCallBack)
-    // let testData = [
-    //   {
-    //     img: 'http://www.iconpng.com/png/delivering-icons/car171.png',
-    //     // title: '车牌号：粤C888888',
-    //     des: '车牌号'
-    //   }
-    // ];
-    // successCallBack(testData)}
 
-    // axios.
-    // post(`${this.apiUrl}/users`, employee)
-    // .then(function (response) {
-    //     successCallBack(response.status);
-    // }) 
-    // .catch(function (error) {
-    //     console.log(error);
-    // })
+  sendServerData(id,successCallBack) {
+    // const parkingBoyId = localStorage.getItem("id");
+    const parkingBoyId = 1;
+    axios.
+    post(`https://dino-parking-system-backend.herokuapp.com/order/${id}`, parkingBoyId)
+    .then(function (response) {
+        console.log('success');
+        alert("rob order successfully!")
+        successCallBack(response.status);
+    }) 
+    .catch(function (error) {
+        console.log(error);
+    })
   }
 
 }

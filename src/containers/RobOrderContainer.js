@@ -23,8 +23,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     getOrderHandler: () => {
         RobOrderAPI.getServerData(orders => dispatch({type:'GET_ALL_ORDERS',orders}))
     },
-    robOrderHandle: () =>{
-        console.log('rob')
+    robOrderHandle: (id) =>{
+        console.log(id)
         RobOrderAPI.sendServerData(orders => dispatch({type:'GET_ALL_ORDERS',orders}))
     }
   }
