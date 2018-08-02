@@ -1,7 +1,7 @@
 import {ListView, Button} from 'antd-mobile';
 import React from 'react';
 
-const data = [
+let data = [
   {
     img: 'http://www.iconpng.com/png/delivering-icons/car171.png',
     // title: '车牌号：粤C888888',
@@ -35,6 +35,10 @@ export default class RobOrder extends React.Component {
   }
 
   componentDidMount() {
+    // console.log("monut")
+    // console.log(this.props.lotsList);
+    // data = this.props.lotsList
+    this.props.getOrderHandler();
     // you can scroll to the specified position setTimeout(() => this.lv.scrollTo(0,
     // 120), 800); simulate initial Ajax
     setTimeout(() => {
