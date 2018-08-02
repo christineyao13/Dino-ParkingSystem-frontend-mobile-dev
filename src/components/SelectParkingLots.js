@@ -6,12 +6,11 @@ export default class SelectParkingLots extends React.Component{
         super();
       }
     
-    //   componentWillMount() {
-    //     this
-    //       .props
-    //       .load();
-    //   }
+      
   render(){
+      // const parkingBoyId = localStorage.getItem("id");
+      const parkingBoyId = 2;
+      const parkingLotId = 1;
       return(
           <div>
         <div
@@ -36,7 +35,7 @@ export default class SelectParkingLots extends React.Component{
         </Item>
       </List>
 
-      <Button style={{marginTop:300,backgroundColor:"#1a81d2"}}>完成订单</Button>
+      <Button style={{marginTop:300,backgroundColor:"#1a81d2"}} onClick={()=>this.props.SelectParkingLotsHandler(parkingBoyId,parkingLotId)}>完成订单</Button>
       </div>
       )
   }

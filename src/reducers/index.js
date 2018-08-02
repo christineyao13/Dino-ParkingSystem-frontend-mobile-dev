@@ -7,6 +7,12 @@ export default (state = [], action) => {
           newState = [...action.orders];
           return newState;
       }
+      case 'GET_ALL_PARKINGLOTS': {
+        console.log(action.parkingLots);
+        let newState = JSON.parse(JSON.stringify(state));
+        newState = [...action.parkingLots];
+        return newState;
+     }
       default:
         return state;
     }

@@ -1,23 +1,20 @@
 import {connect} from 'react-redux';
-import ParkingLotDashboard from "../components/parkingLot/ParkingLotDashboard";
-import {showParkingLotsList} from '../actions/index'
+import SelectParkingLots from "../components/SelectParkingLots";
 import ParkingLotDashboardAPI from '../API/ParkingLotDashboardAPI'
 
 const mapStateToProps = (state, ownProps) => {
   let lotsList = [];
-  if (state !== null) {
-    lotsList = [...state.dashboard];
-  }
+  
 
   return {lotsList}
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    load: () => {
-      ParkingLotDashboardAPI.initServerData(dispatch, showParkingLotsList);
+    SelectParkingLotsHandler: (parkingBoyId,parkingLotId) => {
+      ParkingLotDashboardAPI.putServerData(parkingBoyId,parkingLotId);
     }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ParkingLotDashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(SelectParkingLots);

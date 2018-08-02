@@ -3,9 +3,9 @@ import React from 'react';
 
 export default class ParkingWorkList extends React.Component {
 
-//   componentDidMount() {
-//         this.props.getOrderHandler();
-//       }
+  componentDidMount() {
+        this.props.getParkingLotsHandler();
+    }
 
   render(){
     //const data = this.props.lotsList

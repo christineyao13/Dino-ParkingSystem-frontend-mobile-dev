@@ -2,7 +2,8 @@ import React from 'react';
 import { TabBar } from 'antd-mobile';
 import '../index.css'
 import RobOrder from '../containers/RobOrderContainer'
-import ParkingWorkList from '../components/ParkingWorkList'
+import ParkingWorkList from '../containers/ParkingWorkListContainer'
+import SelectParkingLots from '../containers/SelectParkingLotsContainer';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ export default class Home extends React.Component {
   renderContent3(pageText) {
     return (
       <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
-       <ParkingWorkList/>
+       <SelectParkingLots />
       </div>
     );
   }
@@ -103,7 +104,7 @@ export default class Home extends React.Component {
           >
             {this.renderContent2('Koubei')}
           </TabBar.Item>
-          {/* <TabBar.Item
+           <TabBar.Item
             icon={
               <div style={{
                 width: '22px',
@@ -128,9 +129,9 @@ export default class Home extends React.Component {
               });
             }}
           >
-            {this.renderContent1('Friend')}
+            {this.renderContent3('Friend')}
           </TabBar.Item>
-          <TabBar.Item
+          {/* <TabBar.Item
             icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
             selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
             title="My"
@@ -143,7 +144,7 @@ export default class Home extends React.Component {
             }}
           >
             {this.renderContent1('My')}
-          </TabBar.Item> */}
+          </TabBar.Item>  */}
         </TabBar>
       </div>
     );

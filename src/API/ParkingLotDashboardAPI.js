@@ -2,37 +2,40 @@
 import axios from "axios";
 
 const ParkingLotBashBoardAPI = {
-  initServerData(dispatch, action) {
-    this.getServerData(dispatch, action);
-  },
-  getServerData(dispatch, action) {
-    let getDataUrl = 'https://dino-parking-system-backend.herokuapp.com/parkingLots/dashboard';
-    axios
-      .get(getDataUrl)
-      .then((response) => {
-        const data = response
-          .data
-          .map(serverData => {
-            const {parkingLotName, size, carNum, parkingBoyName} = serverData;
-            return {parkingLotName, size, carNum, parkingBoyName};
-          });
-        dispatch(action(data))
-      })
-      .catch(function (error) {
-      })
-      .then(function () {});
-  }
-//   apiUrl: 'https://dino-parking-system-backend.herokuapp.com',
+  // initServerData(dispatch, action) {
+  //   this.getServerData(dispatch, action);
+  // },
+  // getServerData(successCallBack) {
+  //   let getDataUrl = `https://dino-parking-system-backend.herokuapp.com/parkingBoys/${id}/parkingLots`;
+  //   axios
+  //     .get(getDataUrl)
+  //     .then((response) => {
+  //       const data = response
+  //         .data
+  //         .map(serverData => {
+  //           const {parkingLotName, size, carNum, parkingBoyName} = serverData;
+  //           return {parkingLotName, size, carNum, parkingBoyName};
+  //         });
+  //         successCallBack(data)
+  //     })
+  //     .catch(function (error) {
+  //     })
+  //     .then(function () {});
+  // },
 
-//     getAllEmployees(successCallBack) {
-//         axios
-//             .get(`${this.apiUrl}/users`)
-//             .then(function (response) {
-//                 successCallBack(response.data);
-//             })
-//             .catch(function (error) {
-//                 console.log(error);
-//             });
-//     },
+  putServerData(parkingBoyId,parkingLotId) {
+    let self = this;
+    // const parkingBoyId = localStorage.getItem("id");
+    console.log(`https://dino-parking-system-backend.herokuapp.com/parkingBoys/${parkingBoyId}/parkingLots/${parkingLotId}`)
+    axios.
+    put(`https://dino-parking-system-backend.herokuapp.com/parkingBoys/${parkingBoyId}/parkingLots/${parkingLotId}`)
+    .then(function (response) {
+        console.log('success');
+        alert("park car successfully!")
+    }) 
+    .catch(function (error) {
+        console.log(error);
+    })
+  }
 }
 export default ParkingLotBashBoardAPI;

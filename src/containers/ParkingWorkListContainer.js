@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
-import RobOrder from "../components/RobOrder";
-import RobOrderAPI from '../API/RobOrderAPI'
+import ParkingWorkList from "../components/ParkingWorkList";
+import ParkingWorkListAPI from '../API/ParkingWorkListAPI'
 
 const mapStateToProps = (state, ownProps) => {
   let lotsList = [
@@ -20,13 +20,11 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    getOrderHandler: () => {
-        RobOrderAPI.getServerData(orders => dispatch({type:'GET_ALL_ORDERS',orders}))
+    getParkingLotsHandler: () => {
+        ParkingWorkListAPI.getServerData(parkingLots => dispatch({type:'GET_ALL_PARKINGLOTS',parkingLots}))
     },
-    robOrderHandle: (id) =>{
-        RobOrderAPI.sendServerData(id,orders => dispatch({type:'GET_ALL_ORDERS',orders}))
-    }
+
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RobOrder);
+export default connect(mapStateToProps, mapDispatchToProps)(ParkingWorkList);
