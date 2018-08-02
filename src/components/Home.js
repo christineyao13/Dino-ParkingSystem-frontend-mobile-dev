@@ -103,7 +103,7 @@ export default class Home extends React.Component {
           >
             {this.renderContent2('Koubei')}
           </TabBar.Item>
-          <TabBar.Item
+          {/* <TabBar.Item
             icon={
               <div style={{
                 width: '22px',
@@ -143,7 +143,7 @@ export default class Home extends React.Component {
             }}
           >
             {this.renderContent1('My')}
-          </TabBar.Item>
+          </TabBar.Item> */}
         </TabBar>
       </div>
     );

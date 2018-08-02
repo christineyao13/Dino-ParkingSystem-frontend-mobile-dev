@@ -5,6 +5,7 @@ const RobOrderAPI = {
     this.getServerData(dispatch, action);
   },
   getServerData(successCallBack) {
+    console.log(111)
     let getDataUrl = 'https://dino-parking-system-backend.herokuapp.com/orders/nohandle';
     axios
       .get(getDataUrl)
@@ -26,14 +27,16 @@ const RobOrderAPI = {
   },
 
   sendServerData(id,successCallBack) {
+    let self = this;
     // const parkingBoyId = localStorage.getItem("id");
-    const parkingBoyId = 1;
+    const parkingBoyId = 2;
+    console.log(`https://dino-parking-system-backend.herokuapp.com/orders/${id}`)
     axios.
-    post(`https://dino-parking-system-backend.herokuapp.com/order/${id}`, parkingBoyId)
+    put(`https://dino-parking-system-backend.herokuapp.com/orders/${id}`, {"parkingBoyId":2})
     .then(function (response) {
         console.log('success');
         alert("rob order successfully!")
-        successCallBack(response.status);
+        self.getServerData(successCallBack)
     }) 
     .catch(function (error) {
         console.log(error);

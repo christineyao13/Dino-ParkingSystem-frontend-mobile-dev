@@ -27,9 +27,9 @@ const ParkingWorkListAPI = {
 
   sendServerData(id,successCallBack) {
     // const parkingBoyId = localStorage.getItem("id");
-    const parkingBoyId = 1;
+    const parkingBoyId = 2;
     axios.
-    post(`https://dino-parking-system-backend.herokuapp.com/order/${id}`, parkingBoyId)
+    post(`https://dino-parking-system-backend.herokuapp.com/orders/${id}`, {"parkingBoyId":2})
     .then(function (response) {
         console.log('success');
         alert("rob order successfully!")
