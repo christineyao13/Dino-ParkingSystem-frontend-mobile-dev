@@ -13,8 +13,7 @@ export default class SelectParkingLots extends React.Component{
   render(){
       console.log(this.props.lotsList) 
       // const parkingBoyId = localStorage.getItem("id");
-      const parkingBoyId = 2;
-      const parkingLotId = 1;
+      let parkingLotId = 0;
       return(
           <div>
         <div
@@ -27,19 +26,18 @@ export default class SelectParkingLots extends React.Component{
         <List renderHeader={() => ' '} className="my-list">
         
         <Item>
-          <select defaultValue="1">
+          <select defaultValue="0" onChange={(e)=>parkingLotId = e.target.value}>
+            <option value="0">选择停车场</option>
             <option value="1">选择停车场</option>
-            <option value="2" >停车场A(剩余容量：1)</option>
-            <option value="2" >停车场B</option>
-            <option value="2" >停车场C</option>
-            {/* {this.props.lotsList.map(item=>
-            <option value={item.parkingLotName}>{item.parkingLotName}(剩余容量：{item.size-item.carNum})</option>
-            )} */}
+            <option value="2">选择停车场</option>
+            {this.props.lotsList.map(item=>
+            <option value={item.id}>{item.name}(剩余容量：{item.size-item.carNum})</option>
+            )}
           </select>
         </Item>
       </List>
 
-      <Button style={{marginTop:300,backgroundColor:"#1a81d2"}} onClick={()=>this.props.SelectParkingLotsHandler(parkingBoyId,parkingLotId)}>完成订单</Button>
+      <Button style={{marginTop:300,backgroundColor:"#1a81d2"}} onClick={()=>this.props.SelectParkingLotsHandler(parkingLotId)}>完成订单</Button>
       </div>
       )
   }

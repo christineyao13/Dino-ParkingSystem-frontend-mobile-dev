@@ -7,12 +7,10 @@ export default class ParkingWorkList extends React.Component {
         this.props.getParkingLotsHandler();
   }
 
-  chagePage=(path)=>{
-    console.log(path)
-    console.log(this.props)
-    // const history = createHistory()
-    this.props.history.push('/home/test')
-    // history.push(path);
+  chagePage=(orderId)=>{
+    console.log(orderId)
+    localStorage.setItem("orderId",orderId)  
+    this.props.history.push('/home/SelectParkingLots')
   }
 
   render(){
@@ -58,7 +56,7 @@ export default class ParkingWorkList extends React.Component {
                 </div>
                 
               </div>
-              <Button onClick={()=>this.chagePage()}>选择停车场</Button>
+              <Button onClick={()=>this.chagePage(data.id)}>选择停车场</Button>
           </div>
         ))}
       </div>

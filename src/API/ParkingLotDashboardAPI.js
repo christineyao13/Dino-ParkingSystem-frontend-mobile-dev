@@ -24,12 +24,13 @@ const ParkingLotBashBoardAPI = {
       .then(function () {});
   },
 
-  putServerData(parkingBoyId,parkingLotId) {
+  putServerData(parkingLotId) {
     let self = this;
     // const parkingBoyId = localStorage.getItem("id");
+    const parkingBoyId = 2;
     console.log(`https://dino-parking-system-backend.herokuapp.com/parkingBoys/${parkingBoyId}/parkingLots/${parkingLotId}`)
     axios.
-    put(`https://dino-parking-system-backend.herokuapp.com/parkingBoys/${parkingBoyId}/parkingLots/${parkingLotId}`)
+    put(`https://dino-parking-system-backend.herokuapp.com/parkingBoys/${parkingBoyId}/parkingLots/${parkingLotId}`,{"orderId":parseInt(localStorage.getItem("orderId"))})
     .then(function (response) {
         console.log('success');
         alert("park car successfully!")
