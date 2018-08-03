@@ -21,15 +21,7 @@ export default class ParkingWorkList extends React.Component {
     console.log(this.props.lotsList)
     return(
       <div>
-        <div
-          style={{
-          backgroundColor: "#1a81d2",
-          height: 50,
-          fontSize: 20,
-          verticalAlign: "middle"
-        }}>停取工作列表</div>
-
-         
+        <NavBar mode="dark">停取工作列表</NavBar>
 
         {this.props.lotsList.map(data=>(
           <div style={{border:'4px solid #9e969633'}}>
@@ -41,31 +33,23 @@ export default class ParkingWorkList extends React.Component {
             }}>
               <img
                 style={{
-                height: '64px',
+                height: '55px',
+                marginLeft: '20px',
                 marginRight: '15px'
               }}
                 src={data.img}
                 alt=""/>
               <div style={{
-                lineHeight: 1
+                lineHeight: 1.5
               }}>
-                <div style={{marginBottom: '8px', fontWeight: 'bold'}}>{data.plateNumber}</div>
-                <div>停车时间:{data.parkDate}<span
-                  style={{
-            fontSize: '30px',
-            color: '#FF6E27'
-          }}></span>
-          
-                </div>
-                
-                </div>
-                
+                <div style={{marginBottom: '8px', fontWeight: 'bold',textAlign:"left"}}>车牌号：{data.plateNumber}</div>
+                <div>停车时间:&nbsp;{data.parkDate}<span style={{fontSize: '30px',color: '#FF6E27'}}></span></div>     
+                </div>            
               </div>
               {data.status==='waitPark'?
               <Button onClick={()=>this.chageSelectParkingLotsPage(data.id)}>选择停车场</Button>
               :<Button onClick={()=>this.chageConfirmUnparkPage(data)}>取车</Button>
               }
-              {/* <Button onClick={()=>this.chagePage(data.id)}>{data.status==='waitPark'?`选择停车场`:`取车`}</Button> */}
           </div>
         ))}
       </div>

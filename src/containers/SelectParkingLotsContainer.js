@@ -4,8 +4,6 @@ import ParkingLotDashboardAPI from '../API/ParkingLotDashboardAPI'
 
 const mapStateToProps = (state, ownProps) => {
   let lotsList = state;
-  
-
   return {lotsList}
 }
 

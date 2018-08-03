@@ -18,38 +18,8 @@ export default class Home extends React.Component {
   }
 
   chagePage=(path)=>{
-    console.log(path)
-    console.log(this.props)
-    // const history = createHistory()
     this.props.history.push(path)
-    // history.push(path);
   }
-
-  // renderContent1(pageText) {
-
-  //   return (
-  //     <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
-  //      <RobOrder />
-  //     </div>
-  //   );
-  
-  // }
-
-  // renderContent2(pageText) {
-  //   return (
-  //     <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
-  //      <ParkingWorkList/>
-  //     </div>
-  //   );
-  // }
-
-  // renderContent3(pageText) {
-  //   return (
-  //     <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
-  //      <SelectParkingLots />
-  //     </div>
-  //   );
-  // }
 
   render() {
     return (
@@ -124,42 +94,45 @@ export default class Home extends React.Component {
               <div style={{
                 width: '22px',
                 height: '22px',
-                background: 'url(http://www.iconpng.com/png/iphone_web_black/backup.png) center center /  21px 21px no-repeat' }}
+                background: 'url(http://okc9ihakz.bkt.clouddn.com/history.svg) center center /  21px 21px no-repeat' }}
               />
             }
             selectedIcon={
               <div style={{
                 width: '22px',
                 height: '22px',
-                background: 'url(http://www.iconpng.com/png/iphone_web_black/backup.png) center center /  21px 21px no-repeat' }}
+                background: 'url(http://okc9ihakz.bkt.clouddn.com/history-click.svg) center center /  21px 21px no-repeat' }}
               />
             }
-            title="历史记录"
+            title="历史"
             key="Friend"
             // dot
-            selected={this.state.selectedTab === 'greenTab'}
+            selected={localStorage.getItem("status") === '3'}
             onPress={() => {
               this.setState({
                 selectedTab: 'greenTab',
               });
+              localStorage.setItem("status","3")
+              this.chagePage("/home/HistoryOrder");
             }}
           >
             {/* {this.renderContent3('Friend')} */}
           </TabBar.Item>
-          {/* <TabBar.Item
-            icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-            selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
-            title="My"
+          <TabBar.Item
+            icon={{ uri: 'http://okc9ihakz.bkt.clouddn.com/my.svg' }}
+            selectedIcon={{ uri: 'http://okc9ihakz.bkt.clouddn.com/my-click.svg' }}
+            title="个人"
             key="my"
-            selected={this.state.selectedTab === 'yellowTab'}
+            selected={localStorage.getItem("status") === '4'}
             onPress={() => {
               this.setState({
                 selectedTab: 'yellowTab',
               });
+              localStorage.setItem("status","4")
             }}
           >
-            {this.renderContent1('My')}
-          </TabBar.Item>  */}
+            {/* {this.renderContent1('My')} */}
+          </TabBar.Item> 
         </TabBar>
       </div>
     );

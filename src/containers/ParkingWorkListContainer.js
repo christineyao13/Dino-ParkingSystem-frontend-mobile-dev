@@ -11,10 +11,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     getParkingLotsHandler: () => {
-        ParkingWorkListAPI.getServerData(parkingLots => dispatch({type:'GET_ALL_PARKINGLOTS',parkingLots}))
-    },
-    aa :() =>{
-      console.log(1)
+        ParkingWorkListAPI.getServerData(ordersByParkingBoy => dispatch({type:'GET_ALL_ORDERS_BY_PARKINGBOY',ordersByParkingBoy}))
     }
   }
 }

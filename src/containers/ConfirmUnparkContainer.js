@@ -4,8 +4,6 @@ import ConfirmUnparkAPI from '../API/ConfirmUnparkAPI'
 
 const mapStateToProps = (state, ownProps) => {
   let lotsList = state;
-  
-
   return {lotsList}
 }
 

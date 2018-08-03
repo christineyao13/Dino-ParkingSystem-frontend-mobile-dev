@@ -1,4 +1,4 @@
-import {Button} from 'antd-mobile';
+import {Button,NavBar} from 'antd-mobile';
 import React from 'react';
 
 export default class RobOrder extends React.Component {
@@ -12,13 +12,14 @@ export default class RobOrder extends React.Component {
     console.log(this.props.lotsList)
     return(
       <div>
-        <div
+        {/* <div
           style={{
           backgroundColor: "#1a81d2",
           height: 50,
           fontSize: 20,
           verticalAlign: "middle"
-        }}>停车</div>
+        }}>停车</div> */}
+        <NavBar mode="dark">订单</NavBar>
 
         {data.map(data=>(
           <div style={{border:'4px solid #9e969633'}}>
@@ -31,6 +32,7 @@ export default class RobOrder extends React.Component {
               <img
                 style={{
                 height: '64px',
+                marginLeft: '20px',
                 marginRight: '15px'
               }}
                 src={data.img}
@@ -38,18 +40,10 @@ export default class RobOrder extends React.Component {
               <div style={{
                 lineHeight: 1
               }}>
-                <div style={{marginBottom: '8px', fontWeight: 'bold'}}>{data.plateNumber}</div>
-                <div>停车时间:{data.parkDate}<span
-                  style={{
-            fontSize: '30px',
-            color: '#FF6E27'
-          }}></span>
-          
-                </div>
-                
-                </div>
-                
-              </div>
+                <div style={{marginBottom: '8px', fontWeight: 'bold',textAlign:"left"}}>车牌号：{data.plateNumber}</div>
+                <div>停车时间:&nbsp;{data.parkDate}<span style={{fontSize: '30px',color: '#FF6E27'}}></span></div>          
+              </div>               
+          </div>
               <Button onClick={()=>this.props.robOrderHandle(data.id)}>抢单</Button>
           </div>
         ))
