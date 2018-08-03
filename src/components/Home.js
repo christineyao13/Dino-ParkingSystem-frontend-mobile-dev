@@ -23,6 +23,7 @@ export default class Home extends React.Component {
     // const history = createHistory()
     this.props.history.push(path)
     // history.push(path);
+    // window.location.href=path;
   }
 
   // renderContent1(pageText) {
