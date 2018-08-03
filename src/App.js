@@ -20,6 +20,7 @@ class App extends Component {
             <Route  path="/home/ParkingWorkList" component={ParkingWorkList}></Route>
             <Route  path="/home/SelectParkingLots" component={SelectParkingLots}></Route>
             <Route  path="/home/ConfirmUnpark" component={ConfirmUnpark}></Route>
+            
             <Home {...props}/>
           </div>
       </div>
