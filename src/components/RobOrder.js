@@ -1,7 +1,11 @@
-import {Button} from 'antd-mobile';
+import {Button,Toast} from 'antd-mobile';
 import React from 'react';
 
 export default class RobOrder extends React.Component {
+
+   successToast() {
+    Toast.success('Load success !!!', 1);
+  }
 
   componentDidMount() {
         this.props.getOrderHandler();
@@ -50,7 +54,9 @@ export default class RobOrder extends React.Component {
                 </div>
                 
               </div>
-              <Button onClick={()=>this.props.robOrderHandle(data.id)}>抢单</Button>
+              <Button onClick={()=>this.props.robOrderHandle(data.id) 
+                
+                }>抢单</Button>
           </div>
         ))
       }
