@@ -36,7 +36,8 @@ const RobOrderAPI = {
     .then(function (response) {
         console.log('success');
         alert("rob order successfully!")
-        self.getServerData(successCallBack)
+        localStorage.setItem("status","2")
+        window.location.href="/home/ParkingWorkList"
     }) 
     .catch(function (error) {
         console.log(error);

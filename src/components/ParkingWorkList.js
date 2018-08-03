@@ -25,6 +25,15 @@ export default class ParkingWorkList extends React.Component {
           fontSize: 20,
           verticalAlign: "middle"
         }}>停取工作列表</div>
+        
+         {/* <NavBar
+      mode="dark"
+      leftContent="Back"
+      rightContent={[
+        <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
+        <Icon key="1" type="ellipsis" />,
+      ]}
+    >NavBar</NavBar> */}
 
         {this.props.lotsList.map(data=>(
           <div style={{border:'4px solid #9e969633'}}>

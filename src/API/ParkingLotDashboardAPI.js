@@ -34,6 +34,7 @@ const ParkingLotBashBoardAPI = {
     .then(function (response) {
         console.log('success');
         alert("park car successfully!")
+        window.location.href="/home/ParkingWorkList"
     }) 
     .catch(function (error) {
         console.log(error);
