@@ -19,9 +19,9 @@ const ParkingWorkListAPI = {
             }else{
                img = 'http://okc9ihakz.bkt.clouddn.com/%E8%BD%A6%E8%BE%86%E7%AE%A1%E7%90%86-01.svg';
             }
-            const {plateNumber,id,parkDate} = serverData;
+            const {plateNumber,id,parkDate,status} = serverData;
             
-            return {plateNumber,img,id,parkDate};
+            return {plateNumber,img,id,parkDate,status};
           })
           ;
         successCallBack([...data])

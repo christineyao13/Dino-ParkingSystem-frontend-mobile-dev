@@ -1,4 +1,4 @@
-import {Button} from 'antd-mobile';
+import {Button,NavBar, Icon} from 'antd-mobile';
 import React from 'react';
 
 export default class ParkingWorkList extends React.Component {
@@ -7,10 +7,13 @@ export default class ParkingWorkList extends React.Component {
         this.props.getParkingLotsHandler();
   }
 
-  chagePage=(orderId)=>{
-    console.log(orderId)
+  chageSelectParkingLotsPage=(orderId)=>{
     localStorage.setItem("orderId",orderId)  
     this.props.history.push('/home/SelectParkingLots')
+  }
+  chageConfirmUnparkPage=(data)=>{
+    localStorage.setItem("unparkData",JSON.stringify(data))
+    this.props.history.push('/home/ConfirmUnpark')
   }
 
   render(){
@@ -25,15 +28,8 @@ export default class ParkingWorkList extends React.Component {
           fontSize: 20,
           verticalAlign: "middle"
         }}>停取工作列表</div>
-        
-         {/* <NavBar
-      mode="dark"
-      leftContent="Back"
-      rightContent={[
-        <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
-        <Icon key="1" type="ellipsis" />,
-      ]}
-    >NavBar</NavBar> */}
+
+         
 
         {this.props.lotsList.map(data=>(
           <div style={{border:'4px solid #9e969633'}}>
@@ -65,7 +61,11 @@ export default class ParkingWorkList extends React.Component {
                 </div>
                 
               </div>
-              <Button onClick={()=>this.chagePage(data.id)}>选择停车场</Button>
+              {data.status==='waitPark'?
+              <Button onClick={()=>this.chageSelectParkingLotsPage(data.id)}>选择停车场</Button>
+              :<Button onClick={()=>this.chageConfirmUnparkPage(data)}>取车</Button>
+              }
+              {/* <Button onClick={()=>this.chagePage(data.id)}>{data.status==='waitPark'?`选择停车场`:`取车`}</Button> */}
           </div>
         ))}
       </div>

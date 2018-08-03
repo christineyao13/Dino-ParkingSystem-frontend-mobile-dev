@@ -1,5 +1,5 @@
 import React from 'react';
-import { List,Button} from 'antd-mobile';
+import { List,Button,NavBar} from 'antd-mobile';
 const Item = List.Item;
 export default class SelectParkingLots extends React.Component{
     constructor() {
@@ -16,20 +16,21 @@ export default class SelectParkingLots extends React.Component{
       let parkingLotId = 0;
       return(
           <div>
-        <div
-        style={{
-        backgroundColor: "#1a81d2",
-        height: 50,
-        fontSize: 20,
-        verticalAlign: "middle"
-      }}>停车地点</div>
+        <NavBar
+      mode="dark" 
+      leftContent="Back"
+      rightContent={[
+        // <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
+        // <Icon key="1" type="ellipsis" />,
+      ]}
+      onLeftClick	={()=>window.location.href="/home/ParkingWorkList"}
+    >选择停车场</NavBar>
+
         <List renderHeader={() => ' '} className="my-list">
         
         <Item>
           <select defaultValue="0" onChange={(e)=>parkingLotId = e.target.value}>
             <option value="0">选择停车场</option>
-            <option value="1">选择停车场</option>
-            <option value="2">选择停车场</option>
             {this.props.lotsList.map(item=>
             <option value={item.id}>{item.name}(剩余容量：{item.size-item.carNum})</option>
             )}
