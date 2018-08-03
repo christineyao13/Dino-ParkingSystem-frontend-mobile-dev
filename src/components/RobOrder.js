@@ -21,7 +21,7 @@ export default class RobOrder extends React.Component {
         }}>停车</div>
 
         {data.map(data=>(
-          <div style={{border:'4px solid red'}}>
+          <div style={{border:'4px solid #9e969633'}}>
           <div
               style={{
               display: '-webkit-box',
@@ -33,13 +33,13 @@ export default class RobOrder extends React.Component {
                 height: '64px',
                 marginRight: '15px'
               }}
-                src='http://www.iconpng.com/png/delivering-icons/car171.png'
+                src={data.img}
                 alt=""/>
               <div style={{
                 lineHeight: 1
               }}>
                 <div style={{marginBottom: '8px', fontWeight: 'bold'}}>{data.plateNumber}</div>
-                <div>停车时间:<span
+                <div>停车时间:{data.parkDate}<span
                   style={{
             fontSize: '30px',
             color: '#FF6E27'

@@ -5,17 +5,23 @@ const ParkingWorkListAPI = {
 //     this.getServerData(dispatch, action);
 //   },
   getServerData(successCallBack) {
-    let getDataUrl = 'https://dino-parking-system-backend.herokuapp.com/orders/nohandle';
+    const parkingBoyId = 2;
+    let getDataUrl = `https://dino-parking-system-backend.herokuapp.com/orders/?parkingBoyId=${parkingBoyId}`;
     axios
       .get(getDataUrl)
       .then((response) => {
         const data = response
           .data
           .map(serverData => {
-            const img = 'http://www.iconpng.com/png/delivering-icons/car171.png';
-            const {plateNumber,id} = serverData;
+            let img = ''
+            if(serverData.status === 'waitPark'){
+               img ='http://okc9ihakz.bkt.clouddn.com/parkingcar.svg';
+            }else{
+               img = 'http://okc9ihakz.bkt.clouddn.com/%E8%BD%A6%E8%BE%86%E7%AE%A1%E7%90%86-01.svg';
+            }
+            const {plateNumber,id,parkDate} = serverData;
             
-            return {plateNumber,img,id};
+            return {plateNumber,img,id,parkDate};
           })
           ;
         successCallBack([...data])

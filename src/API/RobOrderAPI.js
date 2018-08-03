@@ -6,17 +6,17 @@ const RobOrderAPI = {
   },
   getServerData(successCallBack) {
     console.log(111)
-    let getDataUrl = 'https://dino-parking-system-backend.herokuapp.com/orders/nohandle';
+    let getDataUrl = 'https://dino-parking-system-backend.herokuapp.com/orders/noRob';
     axios
       .get(getDataUrl)
       .then((response) => {
         const data = response
           .data
           .map(serverData => {
-            const img = 'http://www.iconpng.com/png/delivering-icons/car171.png';
-            const {plateNumber,id} = serverData;
+            const img = 'http://okc9ihakz.bkt.clouddn.com/%E5%B0%8F%E6%B1%BD%E8%BD%A6.svg';
+            const {plateNumber,id,parkDate} = serverData;
             
-            return {plateNumber,img,id};
+            return {plateNumber,img,id,parkDate};
           })
           ;
         successCallBack([...data])
@@ -32,7 +32,7 @@ const RobOrderAPI = {
     const parkingBoyId = 2;
     console.log(`https://dino-parking-system-backend.herokuapp.com/orders/${id}`)
     axios.
-    put(`https://dino-parking-system-backend.herokuapp.com/orders/${id}`, {"parkingBoyId":2})
+    put(`https://dino-parking-system-backend.herokuapp.com/orders/${id}`, {"parkingBoyId":2,"status":"waitPark"})
     .then(function (response) {
         console.log('success');
         alert("rob order successfully!")

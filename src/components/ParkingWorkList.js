@@ -5,7 +5,15 @@ export default class ParkingWorkList extends React.Component {
 
   componentDidMount() {
         this.props.getParkingLotsHandler();
-    }
+  }
+
+  chagePage=(path)=>{
+    console.log(path)
+    console.log(this.props)
+    // const history = createHistory()
+    this.props.history.push('/home/test')
+    // history.push(path);
+  }
 
   render(){
     //const data = this.props.lotsList
@@ -20,8 +28,8 @@ export default class ParkingWorkList extends React.Component {
           verticalAlign: "middle"
         }}>停取工作列表</div>
 
-        {/* {data.map(data=>( */}
-          <div style={{border:'4px solid red'}}>
+        {this.props.lotsList.map(data=>(
+          <div style={{border:'4px solid #9e969633'}}>
           <div
               style={{
               display: '-webkit-box',
@@ -33,13 +41,13 @@ export default class ParkingWorkList extends React.Component {
                 height: '64px',
                 marginRight: '15px'
               }}
-                src='http://www.iconpng.com/png/delivering-icons/car171.png'
+                src={data.img}
                 alt=""/>
               <div style={{
                 lineHeight: 1
               }}>
-                <div style={{marginBottom: '8px', fontWeight: 'bold'}}>aaa</div>
-                <div>停车时间:<span
+                <div style={{marginBottom: '8px', fontWeight: 'bold'}}>{data.plateNumber}</div>
+                <div>停车时间:{data.parkDate}<span
                   style={{
             fontSize: '30px',
             color: '#FF6E27'
@@ -50,11 +58,9 @@ export default class ParkingWorkList extends React.Component {
                 </div>
                 
               </div>
-              <Button onClick={this.props.changePage}>详情</Button>
+              <Button onClick={()=>this.chagePage()}>选择停车场</Button>
           </div>
-        {/* ) */}
-    {/* )
-      } */}
+        ))}
       </div>
     );
   }

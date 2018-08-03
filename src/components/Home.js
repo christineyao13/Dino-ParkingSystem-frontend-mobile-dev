@@ -5,6 +5,8 @@ import RobOrder from '../containers/RobOrderContainer'
 import ParkingWorkList from '../containers/ParkingWorkListContainer'
 import SelectParkingLots from '../containers/SelectParkingLotsContainer';
 
+import createHistory from 'history/createBrowserHistory'
+
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -15,35 +17,43 @@ export default class Home extends React.Component {
     };
   }
 
-  renderContent1(pageText) {
+  chagePage=(path)=>{
+    console.log(path)
+    console.log(this.props)
+    // const history = createHistory()
+    this.props.history.push(path)
+    // history.push(path);
+  }
 
-    return (
-      <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
-       <RobOrder />
-      </div>
-    );
+  // renderContent1(pageText) {
+
+  //   return (
+  //     <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
+  //      <RobOrder />
+  //     </div>
+  //   );
   
-  }
+  // }
 
-  renderContent2(pageText) {
-    return (
-      <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
-       <ParkingWorkList/>
-      </div>
-    );
-  }
+  // renderContent2(pageText) {
+  //   return (
+  //     <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
+  //      <ParkingWorkList/>
+  //     </div>
+  //   );
+  // }
 
-  renderContent3(pageText) {
-    return (
-      <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
-       <SelectParkingLots />
-      </div>
-    );
-  }
+  // renderContent3(pageText) {
+  //   return (
+  //     <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
+  //      <SelectParkingLots />
+  //     </div>
+  //   );
+  // }
 
   render() {
     return (
-      <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: 400 }}>
+      <div style={this.state.fullScreen ? { position: 'fixed', height: '10%', width: '100%', bottom: 0 } : { height: 400 }}>
         <TabBar
           unselectedTintColor="#949494"
           tintColor="#33A3F4"
@@ -56,54 +66,58 @@ export default class Home extends React.Component {
             icon={<div style={{
               width: '22px',
               height: '22px',
-              background: 'url(http://www.iconpng.com/png/etao-ux-fonts/font-508.png) center center /  21px 21px no-repeat' }}
+              background: 'url(http://okc9ihakz.bkt.clouddn.com/order.svg) center center /  21px 21px no-repeat' }}
             />
             }
             selectedIcon={<div style={{
               width: '22px',
               height: '22px',
-              background: 'url(http://www.iconpng.com/png/etao-ux-fonts/font-508.png) center center /  21px 21px no-repeat' }}
+              background: 'url(http://okc9ihakz.bkt.clouddn.com/order-click.svg) center center /  21px 21px no-repeat' }}
             />
             }
-            selected={this.state.selectedTab === 'blueTab'}
+            selected={localStorage.getItem("status") === '1'}
             // badge={1}
             onPress={() => {
               this.setState({
                 selectedTab: 'blueTab',
               });
+              localStorage.setItem("status","1")
+              this.chagePage("/home/RobOrder");
             }}
             data-seed="logId"
           >
-            {this.renderContent1('Life')}
+            {/* {this.renderContent1('Life')} */}
           </TabBar.Item>
           <TabBar.Item
             icon={
               <div style={{
                 width: '22px',
                 height: '22px',
-                background: 'url(http://www.iconpng.com/png/delivering-icons/car171.png) center center /  21px 21px no-repeat' }}
+                background: 'url(http://okc9ihakz.bkt.clouddn.com/%E8%BD%A6%E8%BE%86-01.svg) center center /  21px 21px no-repeat' }}
               />
             }
             selectedIcon={
               <div style={{
                 width: '22px',
                 height: '22px',
-                background: 'url(http://www.iconpng.com/png/delivering-icons/car171.png) center center /  21px 21px no-repeat' }
+                background: 'url(http://okc9ihakz.bkt.clouddn.com/worklist-click.svg) center center /  21px 21px no-repeat' }
               }
               />
             }
             title="停取"
             key="Koubei"
             // badge={'new'}
-            selected={this.state.selectedTab === 'redTab'}
+            selected={localStorage.getItem("status") === '2'}
             onPress={() => {
               this.setState({
                 selectedTab: 'redTab',
               });
+              localStorage.setItem("status","2")
+              this.chagePage("/home/ParkingWorkList");
             }}
             data-seed="logId1"
           >
-            {this.renderContent2('Koubei')}
+            {/* {this.renderContent2('Koubei')} */}
           </TabBar.Item>
            <TabBar.Item
             icon={
@@ -130,7 +144,7 @@ export default class Home extends React.Component {
               });
             }}
           >
-            {this.renderContent3('Friend')}
+            {/* {this.renderContent3('Friend')} */}
           </TabBar.Item>
           {/* <TabBar.Item
             icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
