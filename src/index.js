@@ -7,16 +7,18 @@ import registerServiceWorker from './registerServiceWorker';
 import {createStore} from 'redux'
 import rootReducer from './reducers/index'
 import {Provider} from "react-redux"
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route,Redirect} from 'react-router-dom'
+import LoginForm from './components/Login'
 
 const store = createStore(rootReducer)
 
 ReactDOM.render(
     <Provider store={store}>
         <Router>
-            <div>
-                <Route path="/test" component={Test}></Route>
+            <div>              
+                <Route path="/login" component={LoginForm }></Route>
                 <Route path="/home" component={App}></Route> 
+                {/* {!localStorage.getItem("token") && (window.location.href.indexOf("/login")===-1)?<Redirect to="/login" />:<Route />}               */}
             </div>
         </Router>
     </Provider>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { List,Button,NavBar} from 'antd-mobile';
+import createHistory from 'history/createBrowserHistory';
 const Item = List.Item;
 export default class ConfirmUnpark extends React.Component{
     constructor() {
@@ -19,7 +20,13 @@ export default class ConfirmUnpark extends React.Component{
         // <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
         // <Icon key="1" type="ellipsis" />,
       ]}
-      onLeftClick	={()=>window.location.href="/home/ParkingWorkList"}
+      // onLeftClick	={()=>window.location.href="/home/ParkingWorkList"}
+      // onLeftClick	={()=>this.props.history.push("/home/ParkingWorkList")}
+      onLeftClick = {()=>{
+        let history = createHistory()
+        // history = "/home/ParkingWorkList"
+        history.go(-1)
+      }}
     >取车详情</NavBar>
     
 

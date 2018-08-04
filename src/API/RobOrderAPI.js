@@ -6,6 +6,8 @@ const RobOrderAPI = {
   },
   getServerData(successCallBack) {
     console.log(111)
+    const token = localStorage.getItem("token")
+    axios.defaults.headers.common['Authorization'] = token;
     let getDataUrl = 'https://dino-parking-system-backend.herokuapp.com/orders/noRob';
     axios
       .get(getDataUrl)
@@ -22,6 +24,8 @@ const RobOrderAPI = {
         successCallBack([...data])
       })
       .catch(function (error) {
+        alert("非法登录，请重新登录")
+        window.location.href="/login"
       })
       .then(function () {});
   },
@@ -36,8 +40,9 @@ const RobOrderAPI = {
     .then(function (response) {
         console.log('success');
         alert("rob order successfully!")
-        localStorage.setItem("status","2")
-        window.location.href="/home/ParkingWorkList"
+        self.getServerData(successCallBack)
+        // localStorage.setItem("status","2")
+        // window.location.href="/home/ParkingWorkList"
     }) 
     .catch(function (error) {
         console.log(error);

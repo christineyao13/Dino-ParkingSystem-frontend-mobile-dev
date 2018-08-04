@@ -1,5 +1,6 @@
 // const axios = require('axios');
 import axios from "axios";
+import createHistory from 'history/createBrowserHistory';
 
 const ParkingLotBashBoardAPI = {
   // initServerData(dispatch, action) {
@@ -34,7 +35,10 @@ const ParkingLotBashBoardAPI = {
     .then(function (response) {
         console.log('success');
         alert("park car successfully!")
-        window.location.href="/home/ParkingWorkList"
+        // window.location.href="/home/ParkingWorkList"
+        const history = createHistory();
+        history.go(-1)
+
     }) 
     .catch(function (error) {
         console.log(error);

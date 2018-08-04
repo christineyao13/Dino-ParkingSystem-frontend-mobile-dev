@@ -1,7 +1,8 @@
 import axios from "axios";
+import createHistory from 'history/createBrowserHistory';
 
 const RobOrderAPI = {
-
+  
   sendServerData(id,successCallBack) {
     let self = this;
     // const parkingBoyId = localStorage.getItem("id");
@@ -13,7 +14,10 @@ const RobOrderAPI = {
         console.log('success');
         alert("unpark car successfully!")
         localStorage.setItem("status","2")
-        window.location.href="/home/ParkingWorkList"
+        const history = createHistory();
+        history.go(-1)
+        // window.location.href="/home/ParkingWorkList"
+        // history = "/home/ParkingWorkList"
     }) 
     .catch(function (error) {
         console.log(error);
