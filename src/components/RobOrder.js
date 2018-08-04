@@ -8,8 +8,9 @@ export default class RobOrder extends React.Component {
       }
 
   render(){
-    const data = this.props.lotsList
+    const data1 = this.props.lotsList
     console.log(this.props.lotsList)
+    let num = 0
     return(
       <div>
         {/* <div
@@ -21,15 +22,15 @@ export default class RobOrder extends React.Component {
         }}>停车</div> */}
         <NavBar mode="dark">订单</NavBar>
 
-        {data.map(data=>(
-          <div style={{border:'4px solid #9e969633'}}>
-          <div
+        {data1.map(data=>(
+          <div style={{border:'4px solid #9e969633'}}> 
+          <div 
               style={{
               display: '-webkit-box',
               display: 'flex',
               padding: '15px 0',
             }}>
-              <img
+              <img 
                 style={{
                 height: '64px',
                 marginLeft: '20px',
@@ -45,7 +46,10 @@ export default class RobOrder extends React.Component {
               </div>               
           </div>
               <Button onClick={()=>this.props.robOrderHandle(data.id)}>抢单</Button>
+              {/* {num===data1.length?console.log(1):console.log(data1.length)} */}
+              {(num = num+1) && num===data1.length?<div style={{marginBottom:"12%"}}></div>:<div></div>}
           </div>
+          
         ))
       }
       </div>
